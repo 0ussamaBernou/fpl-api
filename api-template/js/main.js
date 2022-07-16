@@ -1,4 +1,3 @@
-//Example fetch using pokemonapi.co
 
 function getFetch() {
   const choice = document.querySelector("input").value.toLowerCase();
@@ -7,7 +6,7 @@ function getFetch() {
   fetch(url, {
     method: "GET",
     headers: {
-      mode: "no-cors"
+      mode : 'cors'
   }
 })
     .then((res) => res.json()) // parse response as JSON
