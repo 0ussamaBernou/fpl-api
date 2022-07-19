@@ -1,21 +1,19 @@
+document.querySelector("button").addEventListener("click", getFetch);
 
 function getFetch() {
-  const choice = document.querySelector("input").value.toLowerCase();
   const url = `https://fantasy.premierleague.com/api/bootstrap-static/`;
 
-  fetch(url, {
+  let requestOptions = {
     method: "GET",
-    headers: {
-      mode : 'cors'
-  }
-})
-    .then((res) => res.json()) // parse response as JSON
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((err) => {
-      console.log(`error ${err}`);
-    });
-}
+    redirect: "follow",
+    mode: 'no-cors'
+  };
 
-document.querySelector("button").addEventListener("click", getFetch);
+  fetch(
+    "https://fantasy.premierleague.com/api/bootstrap-static/",
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
+}
